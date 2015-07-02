@@ -6,8 +6,8 @@
 	- https://www.python.org/downloads/
 - **Install pip**
 	- https://pypi.python.org/pypi/pip
-- **Install flask, Pillow and qrcode packages**
-	- $pip install flask Pillow qrcode
+- **Install flask, Pillow, qrcode and requests packages**
+	- $pip install flask Pillow qrcode requests
 - **To run web service version (using flask)**
 	- $sudo python app.py
 - **To run GUI version**
