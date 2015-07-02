@@ -1,12 +1,14 @@
-# createyourqrcode
-to run:
-install python
+# Create Your QR code
 
-install flask, Pillow, qrcode
-pip install flask Pillow qrcode
-
-to run flask web service
-sudo python app.py
-
-to run GUI qrcode generator
-python qrcode_gui.py
+##### How to install and run it:
+- **Download the project**
+- **Install python 2.7.x**
+	- https://www.python.org/downloads/
+- **Install pip**
+	- https://pypi.python.org/pypi/pip
+- **Install flask, Pillow and qrcode packages**
+	- $pip install flask Pillow qrcode
+- **To run web service version (using flask)**
+	- $sudo python app.py
+- **To run GUI version**
+	- $python qrcode_gui.py

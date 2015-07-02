@@ -3,22 +3,25 @@ from Tkinter import *
 from tkFileDialog import askopenfilename
 import qrgenerator
 def openfile():
-   filename = askopenfilename(parent=root)
- #  f = open(filename)
-#   f.read()
-   text = entry.get()
-   qrgenerator.create_qrcode(text, filename).show()
+ 	filename = askopenfilename(parent=root)
+ 	text = entry.get()
+ 	readabilityPriority = checkButtonValue.get()
+	qrgenerator.create_qrcode(text, filename, readabilityPriority).show()
 
 root = Tk()
 root.wm_title("Create Your Own QRCode!")
 root.resizable(width=FALSE, height=FALSE)
-root.geometry('{}x{}'.format(500, 50))
+root.geometry('{}x{}'.format(300, 80))
 
-entry = Entry(root, width=200)
+entry = Entry(root, width=50)
+entry.insert(0,"Insert the URL that you want to encode here!")
 entry.pack()
-entry.delete(0,END)
-entry.insert(0,"http://www.coronelbicaco.rs.gov.br")
-b = Button(root, text="Create QRCode!", width=10, command=openfile)
+
+checkButtonValue = IntVar()
+c = Checkbutton(root, text="Readability Priority", variable=checkButtonValue)
+c.pack()
+
+b = Button(root, text="Create QRCode!", width=12, command=openfile)
 b.pack()
 
 

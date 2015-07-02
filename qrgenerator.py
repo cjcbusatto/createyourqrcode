@@ -1,10 +1,8 @@
-__author__ = 'anderson'
-
 from qrcode import *
-from PIL import Image, ImageOps
+from PIL import Image, ImageOps, ImageFilter
 
 
-def create_qrcode(text, image_path, newversion):
+def create_qrcode(text, image_path, readbilityPriority):
     qr = QRCode(
         version=4,
         error_correction=ERROR_CORRECT_L,
@@ -29,8 +27,7 @@ def create_qrcode(text, image_path, newversion):
     else:
         thum = ImageOps.fit(imagef,im.size)
 
-    #thum.save('thum.png')
-    if newversion is not None:
+    if readbilityPriority == 1:
         thum1 = thum.filter(ImageFilter.FIND_EDGES)
 
         thum1 = thum1.filter(ImageFilter.EDGE_ENHANCE_MORE)
@@ -105,7 +102,7 @@ def create_qrcode(text, image_path, newversion):
             if x < 81 and y < 81 or x>im.size[0]-81 and y < 81 or x<81 and y>im.size[1]-81 or x>233 and x<=279 and y>233 and y <=279:
                 pass
             else:
-                if newversion is not None:
+                if readbilityPriority == 1:
                     for l in range(-3,6):#submodulos todos
                         for m in range(-3,6):
                             original = thum.getpixel((x+l, y+m))
@@ -119,7 +116,7 @@ def create_qrcode(text, image_path, newversion):
             y+=9
         x+=9
 
-    if newversion is not None:
+    if readbilityPriority == 1:
         for i in range(0,im.size[0]):
             for j in range(0, im.size[1]):
                 if thum.getpixel((i,j)) < 180:
