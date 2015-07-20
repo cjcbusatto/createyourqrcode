@@ -42,6 +42,7 @@ def create_qrcode(text, image_path, readbilityPriority):
         for i in range(0,im.size[0]):
             for j in range(0, im.size[1]):
                 thum2.putpixel((i,j), thum2.getpixel((i,j))+70)
+
     for i in range(0, im.size[0]-1):
         for j in range(0, im.size[1]-1):
             cc = thum.getpixel((i,j)) #// current color

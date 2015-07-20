@@ -7,7 +7,7 @@ from werkzeug import secure_filename
 import qrgenerator
 
 UPLOAD_FOLDER = '/home/anderson/Templates'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png','JPG', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['pdf', 'png','JPG', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -29,7 +29,7 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(os.path.dirname(os.path.abspath(__file__)) + '/static/', filename))
             return redirect(url_for('uploaded_file', filename=filename, text=text, newversion=newversion))
-    return render_template("index.html")
+    return render_template("index.html", text='http://www.coronelbicaco.rs.gov.br')
 
 from flask import send_from_directory
 
